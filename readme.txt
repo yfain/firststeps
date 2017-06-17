@@ -1,6 +1,6 @@
-To run code samples you need to install the following software:
+To run code samples from this repository install the following software:
 
-1. Install the recommended version of Node.js (see https://nodejs.org). If you already have Node.JS older than version 6.9 , uninstall it first.
+1. Install the recommended version of Node.js (see https://nodejs.org). If you already have Node.JS older than version 6.9 uninstall it first.
 
 2. Install Angular CLI. 
 
@@ -8,7 +8,7 @@ If you never installed Angular CLI before, open the command prompt window and ru
 
 npm install @angular/cli -g
 
-If you already have Angular CLI olrder that 1.0.0, uninstall it first:
+If you already have Angular CLI older that 1.0.0, uninstall it first:
 
 npm uninstall @angular/cli -g
 npm uninstall @angular-cli -g
