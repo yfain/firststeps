@@ -17,3 +17,5 @@ npm install @angular/cli -g
 3. Install either the trial version of the WebStorm IDE from https://www.jetbrains.com/webstorm/download  or Visual Studio Code IDE (it's free): https://code.visualstudio.com/download.
  
 4. Install the Chrome browser if you don't have it
+
+5. Clone this repository or download the zip file with code samples. 
