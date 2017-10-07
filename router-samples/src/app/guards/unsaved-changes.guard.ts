@@ -1,17 +1,20 @@
 import { CanDeactivate, Router} from "@angular/router";
 import {Injectable} from "@angular/core";
-import {ProductDetailComponent} from "../product.component";
+import {ProductDetailComponent} from "./product.component";
 
 @Injectable()
 export class UnsavedChangesGuard implements CanDeactivate<ProductDetailComponent>{
 
-    constructor(private _router:Router){}
+  constructor(private _router:Router){}
 
-    canDeactivate(component: ProductDetailComponent){
+  canDeactivate(component: ProductDetailComponent){
 
-        return window.confirm("You have unsaved changes. Still want to leave?");
-
+    if (component.name.dirty) {
+      return window.confirm("You have unsaved changes. Still want to leave?");
+    } else {
+      return true;
     }
+  }
 }
 
 
@@ -24,16 +27,33 @@ export class UnsavedChangesGuard implements CanDeactivate<ProductDetailComponent
 
 
 
+
+
+
+
+
+
 /*
-canDeactivate(component: ProductDetailComponent, currentRoute: ActivatedRouteSnapshot,
-  currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot){
+import {ActivatedRouteSnapshot, CanDeactivate, Router, RouterStateSnapshot} from "@angular/router";
+import {Injectable} from "@angular/core";
+import {ProductDetailComponent} from "../product.component";
 
-  let canLeave: boolean = true;
+@Injectable()
+export class UnsavedChangesGuard implements CanDeactivate<ProductDetailComponent>{
 
-  // If the user wants to go to home component
-  if (nextState.url === '/') {
-    canLeave = window.confirm("You have unsaved changes. Still want to go home?");
-  }
-  return canLeave;
+    constructor(private _router:Router){}
 
-}*/
+    canDeactivate(component: ProductDetailComponent, currentRoute: ActivatedRouteSnapshot,
+                  currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot){
+
+        let canLeave: boolean = true;
+
+        // If the user wants to go to home component
+        if (nextState.url === '/') {
+          canLeave = window.confirm("You have unsaved changes. Still want to go home?");
+        }
+        return canLeave;
+
+    }
+}
+*/

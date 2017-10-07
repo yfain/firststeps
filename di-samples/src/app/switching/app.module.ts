@@ -11,7 +11,6 @@ import {MockProductService} from "../switching/mock.product.service";
 @NgModule({
   imports:      [ BrowserModule],
   providers: [ProductService],
-  // providers: [{provide:ProductService, useClass:MockProductService}],
   declarations: [ AppComponent, Product1Component, Product2Component],
   bootstrap:    [ AppComponent ]
 })

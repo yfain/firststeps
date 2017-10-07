@@ -5,7 +5,7 @@ import {Product} from "./product";
 
 @Component({
   selector: 'product1',
-  template: '{{product.title}}'})
+  template: 'Component 1: {{product.title}}'})
 export class Product1Component {
   product: Product;
 

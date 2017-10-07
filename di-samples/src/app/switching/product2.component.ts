@@ -5,7 +5,7 @@ import {ProductService} from "./product.service";
 
 @Component({
   selector: 'product2',
-  template: '{{product.title}}',
+  template: 'Component 2: {{product.title}}',
   providers: [{provide:ProductService, useClass:MockProductService}]
 })
 export class Product2Component {

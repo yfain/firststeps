@@ -8,7 +8,7 @@ import {Component} from "@angular/core";
       <div>Greeting: <input type="text" [value]="greeting" (change)="greeting = $event.target.value"></div>
       <div>User name: <input type="text" [value]="user.name" (change)="user.name = $event.target.value"></div>
       <child [greeting]="greeting" [user]="user"></child>
-    </div>
+     </div>
   `
 })
 export class AppComponent {
