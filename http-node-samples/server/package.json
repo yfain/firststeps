@@ -3,9 +3,7 @@
   "description": "Node and Express samples",
   "private": true,
   "scripts": {
-    "tsc": "tsc",
-    "devRest": "nodemon build/rest-server.js",
-    "devRestAngular": "nodemon build/rest-server-angular.js"
+    "tsc": "tsc"
   },
   "dependencies": {
     "express": "^4.14.0"

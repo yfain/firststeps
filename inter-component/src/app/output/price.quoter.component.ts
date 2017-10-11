@@ -10,10 +10,10 @@ import {IPriceQuote} from "./iprice.quote";
 })
 export class PriceQuoterComponent {
 
-  @Output() lastPrice: EventEmitter <IPriceQuote> = new EventEmitter();
+  @Output() lastPrice = new EventEmitter <IPriceQuote>();
 
-  stockSymbol: string = "IBM";
-  price:number;
+  stockSymbol = "IBM";
+  price;
 
   constructor() {
     setInterval(() => {

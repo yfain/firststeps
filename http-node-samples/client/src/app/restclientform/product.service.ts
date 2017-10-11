@@ -1,15 +1,13 @@
-import { Http} from '@angular/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable} from "@angular/core";
 import { Observable} from "rxjs/Observable";
-import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ProductService{
 
-  constructor( private http: Http){}
+  constructor( private http: HttpClient){}
 
   getProductByID(productID: string): Observable<any>{
-    return this.http.get(`/products/${productID}`)
-      .map(res => res.json());
+    return this.http.get(`api/products/${productID}`);
   }
 }

@@ -1,43 +1,42 @@
-import { Http} from '@angular/http';
+import { HttpClient} from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { Observable} from "rxjs/Observable";
-import {Component} from "@angular/core";
+import {Subscription} from "rxjs/Subscription";
+import {Component, OnDestroy, OnInit} from "@angular/core";
 
 @Component({
   selector: 'app-root',
   template: `<h1>All Products</h1>
   <ul>
-    <li *ngFor="let product of products">
-       {{product.title}}
+    <li *ngFor="let product of products" >
+       {{product.title}} {{product.price | currency: "USD": true}} 
     </li>
   </ul>
+  {{error}}  
   `})
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy{
 
-  products: Array<string> = [];
+  products: any[] = [];
+  theDataSource: Observable<any[]>;
+  productSubscription: Subscription;
+  error:string;
 
-  theDataSource: Observable<string>;
-
-  constructor(private http: Http) {
-
-    this.theDataSource = this.http.get('/api/products')
-      .map(res => res.json());
+  constructor(private httpClient: HttpClient) {
+    this.theDataSource = this.httpClient.get<any[]>('/api/products');
   }
 
   ngOnInit(){
-
-    // Get the data from the REST server
-    this.theDataSource.subscribe(
-      data => {
-        if (Array.isArray(data)){
+    this.productSubscription = this.theDataSource
+      .subscribe(
+        data => {
           this.products=data;
-        } else{
-          this.products.push(data);
-        }
-      },
-      err =>
-        console.log("Can't get products. Error code: %s, URL: %s ",  err.status, err.url),
-      () => console.log('Product(s) are retrieved')
-    );
+        },
+        err =>
+          this.error = `Can't get products. Got ${err.status} from ${err.url}`
+      );
+  }
+
+  ngOnDestroy(){
+    this.productSubscription.unsubscribe();
   }
 }

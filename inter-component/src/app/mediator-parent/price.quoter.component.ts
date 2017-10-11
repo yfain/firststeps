@@ -11,8 +11,8 @@ import {IStock} from './istock';
 export class PriceQuoterComponent {
   @Output() buy: EventEmitter <IStock> = new EventEmitter();
 
-  stockSymbol: string = "IBM";
-  lastPrice:number;
+  stockSymbol = "IBM";
+  lastPrice;
 
   constructor() {
     setInterval(() => {

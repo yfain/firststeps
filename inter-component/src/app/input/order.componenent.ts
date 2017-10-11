@@ -10,9 +10,9 @@ import {  Component, Input }  from '@angular/core';
 })
 export class OrderComponent {
 
-  @Input() quantity: number;
+  @Input() quantity;
 
-  private _stockSymbol: string;
+  private _stockSymbol;
 
   @Input()
   set stockSymbol(value: string) {

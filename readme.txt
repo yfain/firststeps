@@ -10,6 +10,7 @@ npm install @angular/cli -g
 
 If you already have Angular CLI older that 1.0.0, uninstall it first:
 
+npm uninstall @angular-cli -g
 npm uninstall @angular/cli -g
 npm cache clear
 npm install @angular/cli -g
